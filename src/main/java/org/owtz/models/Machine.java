@@ -17,6 +17,10 @@ public class Machine {
         if (this.pet.isBanho() || this.getWhater() <= 0 || this.getShampoo() <= 0){
             System.out.println("o pet não pode tomar banho");
         }
+        else{
+            this.getPet().setBanho(true);
+            System.out.println("o pet: " +this.getPet().getName()+ " foi banhado com sucesso!");
+        }
     }
 
     public void adicionarPet(Pet pet){
@@ -28,8 +32,12 @@ public class Machine {
     }
 
     public void retirarPet(){
-        if (this.getPet().equals(null)) this.setPet(null);
-        return;
+        if(!this.getPet().isBanho() || this.getPet()==null){
+            System.out.println("o pet não tomou banho!");
+        }
+        else {
+            this.pet=null;
+        }
     }
 
     public void addWhater(){
